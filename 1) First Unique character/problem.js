@@ -1,7 +1,4 @@
-function findFirstUniqueChar(string) {
- return string.split('').reduce((obj, char) => {
-   console.log(obj)
-   console.log(char) //?
+export function findFirstUniqueChar(string) {
  }, {})
 }
 
