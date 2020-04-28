@@ -1,4 +1,4 @@
-import { findFirstUniqueChar } from './problem'
+import { findFirstUniqueChar } from './solutions'
 
 describe('the findFirstUniqueChar function', () => {
   it('test 1: "aaron" returns 2', () => {
