@@ -1,4 +1,5 @@
 also involves hash tables.
+leetcode #49
 
 # I/O
 input: array of strings
@@ -23,4 +24,4 @@ how to Compare?
 There is no easy way!
 
 Let's change approach:
-Only one hash table where each hey is an sorted anagram.
+Only one hash table where each key is an sorted anagram.
