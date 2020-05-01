@@ -1,22 +1,10 @@
-function sortString(word) {
-  return word
-    .split('')
-    .sort((a, b) => a.localeCompare(b))
-    .join('');
-}
-
-export const groupAnagrams01 = (stringArr) => {
+export const groupAnagrams01 = (stringArr = []) => {
+  if (stringArr.length === 0) return;
   const hashTable = stringArr.reduce((ht, word) => {
-    const sortedWord = sortString(word);
-    if (ht[sortedWord]) {
-      ht[sortedWord].push(word);
-    } else {
-      ht[sortedWord] = [];
-      ht[sortedWord].push(word);
-    }
+    const sortedWord = word.split('').sort().join('');
+    if (ht[sortedWord]) ht[sortedWord].push(word);
+    else ht[sortedWord] = [word];
     return ht;
   }, {});
   return Object.values(hashTable);
 };
-
-groupAnagrams01(['abc', 'acb', 'bca', 'cba', 'leonardo', 'adranoell']);
