@@ -7,28 +7,23 @@
 
 // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
 
-const isStringAlphanumerical = (s) => {
-  if (/^\w*$/.test(s)) return true;
-  else {
-    const normalizedString = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    return /^\w*$/.test(normalizedString);
-  }
-};
+const isStringAlphanumerical = (s = '') => /^\w*$/.test(s);
+
+const normalizeString = (s = '') =>
+  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 export const isPalindrome = (s) => {
   const stringToArray = s
     .split('')
-    .map((e) => e.toLowerCase())
-    .filter((e) => isStringAlphanumerical(e)); //?
-  const reversed = stringToArray.reverse(); //?
-  let isPalimdrome = true;
+    .map((e) => normalizeString(e.toLowerCase()))
+    .filter((e) => isStringAlphanumerical(e));
+    
+  const stringToArrayCopy = [...stringToArray];
+  const reversed = stringToArrayCopy.reverse(); //?
   for (let i = 0; i < stringToArray.length; i += 1) {
-    console.log(stringToArray[i] === reversed[i]);
-    console.log(reversed[i]);
-    if (stringToArray[i] === reversed[i]) continue;
-    else isPalindrome = false;
+    if (stringToArray[i] !== reversed[i]) return false;
   }
-  return isPalimdrome;
+  return true;
 };
 
-isPalindrome('leo'); //?
+isPalindrome('Socorram-me, subi no ônibus em Marrocos'); //?
