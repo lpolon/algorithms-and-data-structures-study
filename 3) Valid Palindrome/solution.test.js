@@ -6,7 +6,7 @@ describe('isPalindrome(): given a string, returns a bool if the string is a vali
     const result = isPalindrome(input);
     expect(result).toBe(true);
   });
-  test('', () => {
+  test('A man, a plan, a canal: Panama', () => {
     const input = 'A man, a plan, a canal: Panama';
     const result = isPalindrome(input);
     expect(result).toBe(true);
@@ -30,5 +30,10 @@ describe('isPalindrome(): given a string, returns a bool if the string is a vali
     const input = 'A grama é amarga';
     const result = isPalindrome(input);
     expect(result).toBe(true);
+  });
+  test('"a random pharase" is not a palindrome', () => {
+    const input = 'a random pharase';
+    const result = isPalindrome(input);
+    expect(result).toBe(false);
   });
 });

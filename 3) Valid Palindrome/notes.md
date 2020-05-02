@@ -1,2 +1,2 @@
 # unguided attempt:
-i can't see why i'd need a hash table here.
+filter string array to only consider alphanumerical chars;
