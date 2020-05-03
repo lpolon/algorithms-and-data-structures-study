@@ -1,8 +1,3 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
-
 // https://stackoverflow.com/questions/336210/regular-expression-for-alphanumeric-and-underscores
 
 // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
