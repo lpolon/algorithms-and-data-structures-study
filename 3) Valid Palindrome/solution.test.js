@@ -1,4 +1,16 @@
-import { isPalindrome } from './solution';
+import { isPalindrome, sanitizeString } from './solution';
+
+describe('sanitizeString()', () => {
+  it('removes spaces', () => {
+    expect(sanitizeString('a a a')).toStrictEqual('aaa');
+  });
+  it('removes non alphanumeric chars', () => {
+    expect(sanitizeString(' _ac~(   k')).toStrictEqual('_ack');
+  });
+  it('convert àáéíóôuúñ to aaeioouun', () => {
+    expect(sanitizeString('àáéíóôuúñ')).toStrictEqual('aaeioouun');
+  });
+});
 
 describe('isPalindrome(): given a string, returns a bool if the string is a valid palindrome', () => {
   test('an empty string returns true', () => {

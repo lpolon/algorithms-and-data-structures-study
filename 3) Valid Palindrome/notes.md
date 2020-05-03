@@ -64,4 +64,10 @@ is hash table a good fit?
 - does not garantee order.
 
 ### main idea
-iterate through the array from both ends, checking if each element matches and if it reaches the middle with all matching characters. It is a palindrome.
+iterate through the array from both ends, checking if each element matches. If at any point it don't match, it is not a palindrome. if reaches the middle, it is a palindrome.
+
+### pseudo code:
+- create a left and right pointers using index.
+- while pointers have not match:
+  - check if chars are the same;
+  - move pointers towards center.
