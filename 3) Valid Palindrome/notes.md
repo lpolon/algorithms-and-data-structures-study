@@ -103,7 +103,7 @@ this loop is screening only half of the array which is O(n * 1/2) => O(n)
 
 #### space complexity
 the main advantage of this method comes from space optimization.
-in this nome, reassing s instead of creating san would be better.
+in this note, reassing s instead of creating san would be better.
 we're only use two extra pointers with is O(2) or constant space
 
 #### main takeaway
