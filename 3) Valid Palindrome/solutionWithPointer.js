@@ -1,13 +1,26 @@
 import { sanitizeString } from './solution';
 
+// once again i converted it to array needlessly.
 export const isPalindrome = (s = '') => {
   const san = sanitizeString(s);
-  const stringArr = san.split('');
-
   let start = 0;
-  let end = stringArr.length - 1;
+  let end = san.length - 1;
   for (start; start < end; start += 1, end -= 1) {
-    if (stringArr[start] !== stringArr[end]) return false;
+    if (san[start] !== san[end]) return false;
+  }
+  return true;
+};
+
+// Aaron's implementation with while loop (it will be used most)
+
+const aaronsIsPalindrome = (s) => {
+  const san = sanitizeString(s);
+  let left = 0;
+  let right = san.length - 1;
+  while (left < right) {
+    if (san[left] !== san[right]) return false;
+    left += 1;
+    right -= 1;
   }
   return true;
 };
