@@ -1,4 +1,5 @@
-import { isPalindrome, sanitizeString } from './solution';
+import { sanitizeString } from './solution';
+import { isPalindrome } from './solutionWithPointer';
 
 describe('sanitizeString()', () => {
   it('removes spaces', () => {
