@@ -14,15 +14,12 @@ export const isValidParentheses = (s = '') => {
       matches: '}'
     },
     ')': {
-      isOpen: false,
       matches: '('
     },
     ']': {
-      isOpen: false,
       matches: '['
     },
     '}': {
-      isOpen: false,
       matches: '{'
     },
 }
@@ -30,11 +27,8 @@ export const isValidParentheses = (s = '') => {
   const openedParenthesesArray = [];
   let lastHeldChar
 
-  const charArray = s.split('');
-  const charArrayLength = charArray.length
-
-  for (let i = 0; i < charArrayLength; i += 1) {
-    const char = charArray[i]
+  for (let i = 0; i < s.length; i += 1) {
+    const char = s[i]
     if (dictionary[char].isOpen) openedParenthesesArray.push(char)
     else {
       lastHeldChar = openedParenthesesArray.pop()
