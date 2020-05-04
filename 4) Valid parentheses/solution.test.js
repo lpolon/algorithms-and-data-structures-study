@@ -22,6 +22,9 @@ describe('isValidParentheses() determines if a string of only "(", ")", "[", "]"
   test('"(" returns false', () => {
     expect(isValidParentheses('(')).toStrictEqual(false)
   })
+  test('"((" returns false', () => {
+    expect(isValidParentheses('((')).toStrictEqual(false)
+  })
   test('"]]" returns false', () => {
     expect(isValidParentheses(']]')).toStrictEqual(false)
   })

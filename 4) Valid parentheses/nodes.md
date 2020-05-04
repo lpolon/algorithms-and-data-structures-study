@@ -8,3 +8,7 @@ pseudo-code:
 - remove last item. Is it a closing parentheses? if yes add it to a 2nd stack (stackHold)
 - if no, get the last item of the stackHold. Is it a matching pair? if no, return false
 - if yes -> repeat.
+
+2nd try pseudo-code:
+- iterate input
+- hold opened bracket to decide if it correct or not
