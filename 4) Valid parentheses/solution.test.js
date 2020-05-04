@@ -4,16 +4,25 @@ describe('isValidParentheses() determines if a string of only "(", ")", "[", "]"
   test('"()" returns true', () => {
     expect(isValidParentheses('()')).toStrictEqual(true)
   })
-  test.skip('"()[]{}" returns true', () => {
+  test('"()[]{}" returns true', () => {
     expect(isValidParentheses('()[]{}')).toStrictEqual(true)
   })
-  test.skip('"{[]}" returns true', () => {
+  test('"{[]}" returns true', () => {
     expect(isValidParentheses('{[]}')).toStrictEqual(true)
   })
-  test.skip('"(]" returns false', () => {
+  test('"(]" returns false', () => {
     expect(isValidParentheses('(]')).toStrictEqual(false)
   })
-  test.skip('"([)]" returns false', () => {
+  test('"([)]" returns false', () => {
     expect(isValidParentheses('([)]')).toStrictEqual(false)
+  })
+  test('")" returns false', () => {
+    expect(isValidParentheses(')')).toStrictEqual(false)
+  })
+  test('"(" returns false', () => {
+    expect(isValidParentheses('(')).toStrictEqual(false)
+  })
+  test('"]]" returns false', () => {
+    expect(isValidParentheses(']]')).toStrictEqual(false)
   })
 })
