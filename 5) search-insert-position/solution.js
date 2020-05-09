@@ -8,6 +8,7 @@ export function searchInsert(nums, target) {
   let right = nums.length - 1
   let mid
   let midValue
+
   while (left <= right) {
     mid = Math.floor((left + right) / 2)
     midValue = nums[mid]
@@ -15,23 +16,24 @@ export function searchInsert(nums, target) {
     if (midValue < target) left = mid + 1
     else right = mid - 1
   }
-  return -1
+
+  return left // holy fuck
 }
 
 // https://www.youtube.com/watch?v=Xdg9o5yScOI&list=PLn2ipk-jqgZiAHiA70hOxAj8RMUeqYNK3&index=28&t=0s Thanks!
 export function binarySearch(numsArr, target) {
-  let lowI = 0
-  let highI = numsArr.length - 1
-  let midI // round down or up doesn't matter as long as it stays consistent.
+  let low = 0
+  let high = numsArr.length - 1
+  let mid // round down or up doesn't matter as long as it stays consistent.
   // is mid equal the target? return target index.
   // is mid smaller than
   let midValue
-  while (lowI <= highI) {
-    midI = Math.floor((lowI + highI) / 2)
-    midValue = numsArr[midI]
-    if (midValue === target) return midI
-    if (midValue < target) lowI = midI + 1
-    else highI = midI - 1
+  while (low <= high) {
+    mid = Math.floor((low + high) / 2)
+    midValue = numsArr[mid]
+    if (midValue === target) return mid
+    if (midValue < target) low = mid + 1
+    else high = mid - 1
   }
   return -1
 }

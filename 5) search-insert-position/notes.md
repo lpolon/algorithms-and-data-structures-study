@@ -33,4 +33,4 @@ the biggest intuition about O (log n) is that time increases slower as the input
   - is mid pointer value equal to target value? return mid pointer (index)
   - is mid pointer smaller than target value? **It means that the target is right-ward, let's "cut" the array moving the left pointer to the right:** assing mid + 1 to the left pointer
   - else **move the right pointer to to the left**: assign mid - 1 to the right pointer
-  - default: return -1
+  - default: return -1 
