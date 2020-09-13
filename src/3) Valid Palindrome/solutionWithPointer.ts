@@ -1,7 +1,7 @@
 import { sanitizeString } from './solution';
 
-// once again i converted it to array needlessly.
-export const isPalindrome = (s = '') => {
+// once again I converted it to array needlessly.
+export const isPalindrome = (s: string = '') => {
   const san = sanitizeString(s);
   let start = 0;
   let end = san.length - 1;
@@ -13,7 +13,7 @@ export const isPalindrome = (s = '') => {
 
 // Aaron's implementation with while loop (it will be used most)
 
-const aaronsIsPalindrome = (s) => {
+export const aaronsIsPalindrome = (s: string) => {
   const san = sanitizeString(s);
   let left = 0;
   let right = san.length - 1;

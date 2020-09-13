@@ -23,7 +23,7 @@ assumptions: we remove to compare. treat upper and lowercase letters as the same
 
 ### naive solutions (obvious, but not efficient)
 
-- inverviews might expect to solve quickly with naive solution or aknowledge that it exists.
+- inverviews might expect to solve quickly with naive solution or acknowledge that it exists.
 - a reason that this question might be so popular is that a big part of solving algorithms is comparing different solutions.
 
 #### pseudo-code:

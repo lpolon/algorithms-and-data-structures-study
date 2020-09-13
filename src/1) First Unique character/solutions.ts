@@ -5,7 +5,7 @@ type hashtableType = {
   };
 };
 
-export function findFirstUniqueChar(string: string) {
+export function findFirstUniqueChar(string: string): number {
   const hashtable = string
     .split('')
     .reduce((obj: hashtableType, char, arrIndex) => {
@@ -40,7 +40,7 @@ export function findFirstUniqueChar(string: string) {
   return charIndex;
 }
 
-export function findFirstUniqueCharOption2(string: string) {
+export function findFirstUniqueCharOption2(string: string): number {
   const hashtable = string
     .split('')
     .reduce((obj: { [key: string]: number }, char, arrIndex) => {
@@ -59,7 +59,7 @@ export function findFirstUniqueCharOption2(string: string) {
   return string.split('').findIndex(char => hashtable[char] === 1);
 }
 
-export function aaronsSolution1(s: string) {
+export function aaronsSolution1(s: string): number {
   const hashTable: { [key: string]: number } = {};
   for (let char of s) {
     if (hashTable[char]) hashTable[char] += 1;
@@ -79,7 +79,7 @@ export function aaronsSolution1(s: string) {
   check if char is unique by comparing .indexOf() with .lastIndexOf();
 */
 
-export const aaronsSolution2 = (s: string) => {
+export const aaronsSolution2 = (s: string): number => {
   for (let i = 0; i < s.length; i += 1) {
     const char = s[i];
     const firstIndex = s.indexOf(char);

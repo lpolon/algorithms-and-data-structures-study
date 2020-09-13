@@ -3,10 +3,10 @@
 // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
-export const sanitizeString = (s) =>
+export const sanitizeString = (s: string): string =>
   s.normalize('NFD').replace(/[^\w]/gi, '').toLowerCase();
 
-export const worseThanNaiveIsPalindrome = (s) => {
+export const worseThanNaiveIsPalindrome = (s: string): boolean => {
   const sanString = sanitizeString(s);
   const stringToArray = sanString.split('');
   const stringToArrayCopy = [...stringToArray];
@@ -25,7 +25,7 @@ quite a lot is happening implicitly in isPalindrome return statement. Since it i
 Anyway. I just a bit mad that i went through the trouble of looping the array instead of comparing the string, even though the time complexity looks about the same.
  */
 // Aaron's naive solution with adapted string sanitization
-export const isPalindrome = (s) => {
+export const isPalindrome = (s: string) => {
   const san = sanitizeString(s);
   return san.split('').reverse().join('') === san;
 };
