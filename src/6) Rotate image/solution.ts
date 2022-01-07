@@ -25,3 +25,17 @@ export const mutation__rotateImage = (matrix: number[][]): void => {
     }
   }
 };
+
+export const aarons__rotateImage = (matrix: number[][]): void => {
+  matrix.reverse();
+  for (let i = 0; i < matrix.length; i += 1) {
+    for (let j = 0;
+      // make sure we are not checking any coordinates more than once
+      j < i;
+      j += 1) {
+      const currValue = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = currValue;
+    }
+  }
+};
