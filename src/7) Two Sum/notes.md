@@ -18,3 +18,16 @@ two iterations => 2n => O(n)
 
 space complexity:
 Map size increases with array length => n => O(n)
+
+
+# two pointer method
+slightly better than a naive approach, but still:
+time complexity: O(n^2)
+space complexity: O(1)
+
+# how to do it in a single pass?
+during the first iteration create the hashtable and check against it for each new value.
+Indeed, there is no need for two different passes
+
+
+there is a trade of time and space complexity.

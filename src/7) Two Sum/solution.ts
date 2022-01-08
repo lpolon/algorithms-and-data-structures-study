@@ -1,6 +1,6 @@
 type Ht = Map<number, number>;
 
-export function unguided__two_sum(nums: number[], target: number): [number, number] | void {
+export function unguided__twoSum(nums: number[], target: number): [number, number] | void {
   const ht = nums.reduce<Ht>((acc, curr, i) => {
     const diffToTarget = target - curr;
     acc.set(diffToTarget, i);
@@ -20,4 +20,43 @@ function isValidMatchingNumber(
   index: number,
 ): foundMatchingIndex is number {
   return Boolean(foundMatchingIndex) && foundMatchingIndex !== index;
+}
+
+export function two_pointer_method__twoSum(
+  nums: number[],
+  target: number,
+): [number, number] | void {
+  for (let i = 0; i < nums.length; i += 1) {
+    const current = nums[i];
+    const diff = target - current;
+    for (let j = i + 1; j < nums.length; j += 1) {
+      if (nums[j] === diff) return [i, j];
+    }
+  }
+}
+
+export function single_pass__twoSum(nums: number[], target: number): [number, number] | void {
+  const ht: Record<number, number> = {};
+
+  for (const [index, curr] of nums.entries()) {
+    const diff = target - curr;
+    if (diff in ht) {
+      return [ht[diff], index];
+    }
+    ht[curr] = index;
+  }
+}
+
+function single_pass__findPair(
+  nums: number[],
+  index: number,
+  ht: Ht,
+  target: number,
+): [number, number] | void {
+  const curr = nums[index];
+  const diffToTarget = target - curr;
+  ht.set(diffToTarget, index);
+  const foundMatchingIndex = ht.get(curr);
+  if (isValidMatchingNumber(foundMatchingIndex, index)) return [index, foundMatchingIndex];
+  return single_pass__findPair(nums, index + 1, ht, target);
 }
