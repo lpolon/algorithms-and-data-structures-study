@@ -41,7 +41,8 @@ export function single_pass__twoSum(nums: number[], target: number): [number, nu
   for (const [index, curr] of nums.entries()) {
     const diff = target - curr;
     if (diff in ht) {
-      return [ht[diff], index];
+      const foundHtIndex = ht[diff];
+      return [foundHtIndex, index];
     }
     ht[curr] = index;
   }
