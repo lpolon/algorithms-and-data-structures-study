@@ -1,21 +1,13 @@
-export const groupAnagrams01 = (
-  stringArr: string[] = [],
-): string[][] | undefined => {
-
+export const groupAnagrams01 = (stringArr: string[] = []): string[][] | undefined => {
   if (stringArr.length === 0) return;
 
-  const hashTable = stringArr.reduce(
-    (ht: { [key: string]: string[] }, word) => {
+  const hashTable = stringArr.reduce((ht: { [key: string]: string[] }, word) => {
+    const sortedWord = word.split('').sort().join('');
 
-      const sortedWord = word.split('').sort().join('');
+    if (ht[sortedWord]) ht[sortedWord].push(word);
+    else ht[sortedWord] = [word];
 
-      if (ht[sortedWord]) ht[sortedWord].push(word);
-
-      else ht[sortedWord] = [word];
-
-      return ht;
-    },
-    {},
-  );
+    return ht;
+  }, {});
   return Object.values(hashTable);
 };

@@ -13,7 +13,7 @@ export const isValidParentheses = (s: string): boolean => {
     '{': '}',
     '[': ']',
   };
-  for (let char of s) {
+  for (const char of s) {
     if (char in pairs) {
       stack.push(char as PairsKeys);
     } else {

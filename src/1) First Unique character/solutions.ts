@@ -6,26 +6,24 @@ type hashtableType = {
 };
 
 export function findFirstUniqueChar(string: string): number {
-  const hashtable = string
-    .split('')
-    .reduce((obj: hashtableType, char, arrIndex) => {
-      if (arrIndex === 0) {
-        obj[char] = {
-          count: 1,
-          index: arrIndex,
-        };
-        return obj;
-      }
-      if (!obj.hasOwnProperty(char)) {
-        obj[char] = {
-          count: 1,
-          index: arrIndex,
-        };
-        return obj;
-      }
-      obj[char].count += 1;
+  const hashtable = string.split('').reduce((obj: hashtableType, char, arrIndex) => {
+    if (arrIndex === 0) {
+      obj[char] = {
+        count: 1,
+        index: arrIndex,
+      };
       return obj;
-    }, {});
+    }
+    if (!(char in obj)) {
+      obj[char] = {
+        count: 1,
+        index: arrIndex,
+      };
+      return obj;
+    }
+    obj[char].count += 1;
+    return obj;
+  }, {});
 
   let charIndex: number | undefined;
 
@@ -41,27 +39,25 @@ export function findFirstUniqueChar(string: string): number {
 }
 
 export function findFirstUniqueCharOption2(string: string): number {
-  const hashtable = string
-    .split('')
-    .reduce((obj: { [key: string]: number }, char, arrIndex) => {
-      if (arrIndex === 0) {
-        obj[char] = 1;
-        return obj;
-      }
-      if (!obj.hasOwnProperty(char)) {
-        obj[char] = 1;
-        return obj;
-      }
-      obj[char] += 1;
+  const hashtable = string.split('').reduce((obj: { [key: string]: number }, char, arrIndex) => {
+    if (arrIndex === 0) {
+      obj[char] = 1;
       return obj;
-    }, {});
+    }
+    if (!(char in obj)) {
+      obj[char] = 1;
+      return obj;
+    }
+    obj[char] += 1;
+    return obj;
+  }, {});
 
-  return string.split('').findIndex(char => hashtable[char] === 1);
+  return string.split('').findIndex((char) => hashtable[char] === 1);
 }
 
 export function aaronsSolution1(s: string): number {
   const hashTable: { [key: string]: number } = {};
-  for (let char of s) {
+  for (const char of s) {
     if (hashTable[char]) hashTable[char] += 1;
     else hashTable[char] = 1;
   }

@@ -1,7 +1,7 @@
 import { sanitizeString } from './solution';
 
 // once again I converted it to array needlessly.
-export const isPalindrome = (s: string = '') => {
+export const isPalindrome = (s = '') => {
   const san = sanitizeString(s);
   let start = 0;
   let end = san.length - 1;

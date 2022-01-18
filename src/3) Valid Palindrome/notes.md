@@ -81,8 +81,7 @@ iterate through the array from both ends, checking if each element matches. If a
 ### solution:
 
 ```js
-export const sanitizeString = (s) =>
-  s.normalize('NFD').replace(/[^\w]/gi, '').toLowerCase();
+export const sanitizeString = (s) => s.normalize('NFD').replace(/[^\w]/gi, '').toLowerCase();
 
 export const isPalindrome = (s = '') => {
   const san = sanitizeString(s);
@@ -94,17 +93,21 @@ export const isPalindrome = (s = '') => {
   return true;
 };
 ```
+
 #### time complexity
+
 .normalize, .toLowerCase() itarates the string. O(2n)
 .replace uses a regex. after a bit o research, looks like it is generally quadratic.
 
 my eyes should jump for the loop:
-this loop is screening only half of the array which is O(n * 1/2) => O(n)
+this loop is screening only half of the array which is O(n \* 1/2) => O(n)
 
 #### space complexity
+
 the main advantage of this method comes from space optimization.
 in this note, reassing s instead of creating san would be better.
 we're only use two extra pointers with is O(2) or constant space
 
 #### main takeaway
+
 The main takeaway is the pointer method. We'll be moving pointers.

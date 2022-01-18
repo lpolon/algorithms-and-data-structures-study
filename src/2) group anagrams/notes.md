@@ -48,14 +48,17 @@ export const groupAnagrams01 = (stringArr = []) => {
   return Object.values(hashTable);
 };
 ```
+
 ## time complexity:
+
 .sort() operations are expensive!
 built-in sort: O(n log n)
 loop: O(n)
-O(n * (m log m))
+O(n \* (m log m))
 n = length of stringsArr
 m = longest word
 
 ## space complexity:
+
 n keys in the hash table, or linear space or O(n)
 n = length of stringsArr

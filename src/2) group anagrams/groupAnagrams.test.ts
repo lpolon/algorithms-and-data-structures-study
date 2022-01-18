@@ -5,11 +5,7 @@ describe('groupAnagrams(): ', () => {
 
     const result = groupAnagrams01(input);
     // bad test since the order does not metter
-    const expectedResult = [
-      ['abc', 'acb', 'bca', 'cba'],
-      ['leonardo'],
-      ['adranoell'],
-    ];
+    const expectedResult = [['abc', 'acb', 'bca', 'cba'], ['leonardo'], ['adranoell']];
     expect(result).toEqual(expectedResult);
   });
 });

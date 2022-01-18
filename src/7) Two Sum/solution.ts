@@ -48,7 +48,7 @@ export function single_pass__twoSum(nums: number[], target: number): [number, nu
   }
 }
 
-function single_pass__findPair(
+export function single_pass__findPair(
   nums: number[],
   index: number,
   ht: Ht,

@@ -1,7 +1,7 @@
 type SearchInsertType = (nums: number[], target: number) => number;
 
 export const naiveSearchInsert: SearchInsertType = function (nums, target) {
-  const index = nums.findIndex(e => target === e || target < e);
+  const index = nums.findIndex((e) => target === e || target < e);
   return index !== -1 ? index : nums.length;
 };
 
