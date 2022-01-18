@@ -47,17 +47,3 @@ export function single_pass__twoSum(nums: number[], target: number): [number, nu
     ht[curr] = index;
   }
 }
-
-export function single_pass__findPair(
-  nums: number[],
-  index: number,
-  ht: Ht,
-  target: number,
-): [number, number] | void {
-  const curr = nums[index];
-  const diffToTarget = target - curr;
-  ht.set(diffToTarget, index);
-  const foundMatchingIndex = ht.get(curr);
-  if (isValidMatchingNumber(foundMatchingIndex, index)) return [index, foundMatchingIndex];
-  return single_pass__findPair(nums, index + 1, ht, target);
-}
