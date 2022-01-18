@@ -4,7 +4,7 @@ export const groupAnagrams01 = (stringArr: string[] = []): string[][] | undefine
   const hashTable = stringArr.reduce((ht: { [key: string]: string[] }, word) => {
     const sortedWord = word.split('').sort().join('');
 
-    if (ht[sortedWord]) ht[sortedWord].push(word);
+    if (sortedWord in ht) ht[sortedWord].push(word);
     else ht[sortedWord] = [word];
 
     return ht;
