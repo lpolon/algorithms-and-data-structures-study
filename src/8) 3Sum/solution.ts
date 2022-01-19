@@ -1,9 +1,10 @@
-export function leo__threeSum(nums: number[]): number[][] {
+export function aarons__threeSum(nums: number[]): number[][] {
   nums.sort((a, b) => a - b);
   const output: number[][] = [];
-  for (let i = 0; i < nums.length; i += 1) {
+  for (let i = 0; i < nums.length - 2; i += 1) {
     let left = i + 1;
     let right = nums.length - 1;
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
     while (left < right) {
       const currentTriplet = [nums[i], nums[left], nums[right]];
       const currentSum = currentTriplet.reduce((acc, curr) => acc + curr, 0);
@@ -16,22 +17,16 @@ export function leo__threeSum(nums: number[]): number[][] {
         continue;
       }
       output.push(currentTriplet);
-      break;
+      while (left < right && nums[right - 1] === nums[right]) {
+        right -= 1;
+      }
+
+      while (left < right && nums[left + 1] === nums[left]) {
+        left += 1;
+      }
+      right -= 1;
+      left += 1;
     }
   }
-  return deduplicate(output);
-}
-
-function deduplicate(nums: number[][]): number[][] {
-  const tripletsSet: Set<string> = new Set();
-  nums.forEach((triplet) => {
-    triplet.sort((a, b) => a - b);
-    tripletsSet.add(JSON.stringify(triplet));
-  });
-  const result: number[][] = [];
-  for (const [stringTriplet] of tripletsSet.entries()) {
-    const triplet: number[] = Array.from(Object.values(JSON.parse(stringTriplet)));
-    result.push(triplet);
-  }
-  return result;
+  return output;
 }

@@ -55,3 +55,17 @@ It is still two loops, but it is much better than having three.
 
 ### my attempt
 I struggled once again with duplicated. I added some test cases, but it started to get messy again trying to deduplicate the output. I did it before, I am not thinking anything more interesting, so I will just move on for now.
+
+### aaron's guided attempt
+The main point i missed was was how to shift each pointer to skip duplicated values. I also missed that the outer loop do not need to iterate over the last two values.
+
+### time complexity
+since we are using an efficient sort, It is n * log(n), which does not matter compared with our nested loop in O(n^2);
+n * log(n) + n^2 => O(n^2);
+### space complexity
+only three pointers. O(1)
+or
+n space since O(n).
+
+## main takeaways
+Imagine you get a problem like that in an inteverview. Do not panic and follow the process of breaking down the problem.
