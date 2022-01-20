@@ -23,46 +23,41 @@ only access to the head.
 */
 
 export function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-  /*
-find the node to delete.
-second pass: delete it
-*/
-  let foundNode: ListNode;
-  let llLength = 1
-
-  let currNode = head;
-
-  while (currNode !== null) {
-    llLength += 1;
-  }
-  /*
-  1 -> 2 -> 3 -> 4 -> 5 -> 6
-  currN = 6;
-  n = 3
-
-  6 = 3 ? // 6 - 3 = 3
-  5 = 3 ? // 5 - 3 = 2
-  4 = 3 ? // 4 - 3 = 1
-  3 = 3 => ok
-
-  currN - n = 0
-  */
-
-  let currN = llLength;
-  let prev = head;
-  while (head !== null) {
-
-    if (currN === n) {
-      if (prev?.next) {
-        prev.next = prev.next.next
-      }
-    }
-    prev = head;
-    head = head.next;
-    currN -= 1;
+  let cur = head;
+  let length = 1;
+  while (cur !== null) {
+    length += 1;
+    cur = cur.next;
   }
 
+  let leftIndex = length - n - 1;
 
+  if (leftIndex === 0) {
+    return head?.next ?? null;
+  }
+  cur = head;
+  while (
+    // cool but don't
+    // leftIndex -- > 1
+    leftIndex > 1
+  ) {
+    leftIndex -= 1;
+    cur = cur?.next ?? null;
+  }
+
+  if (cur?.next) {
+    cur.next = cur.next.next;
+  }
 
   return head;
 }
+
+/*
+time complexity:
+two loops in sequence.
+n * n = 2n => O(n)
+
+space complexity:
+three pointers.
+3 => O(1)
+*/
