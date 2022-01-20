@@ -76,7 +76,35 @@ for instance: .indexOf('a') if 'a' is the first one: O(1) if 'a' is not in the s
 
 takeaways:
 
--
 - every line of code has a time complexity
 - every variable has a space complexity
 - simplify: only keep the highest order of magnitude of the function and assume worst case.
+
+## Linked Lists Overview
+
+There is no built-in linked list for js.
+
+Let's build a class to represent the linked list data structure.
+
+### What is a linked list?
+
+A chain of nodes.
+
+### A note
+
+It holds a peace of data. Usually in a `.value` property. A pointer `.next` links to the next node in the list.
+
+The first node is the head and the last node is the tail. The tail has the null pointer (what does it means? `next = null`?).
+
+`.next` is not giving us the value of the next node value, but the reference (a pointer pointing to a place in memory) to the next node.
+
+so, just to be clear:
+
+```js
+const secondNodeList = new NodeList(2);
+const second = head.next; // 2
+second.value; // 2;
+head.next.value; // 2
+```
+
+So we are saying that a linked list `.next` sets a pointer by reference. What is the alternative to reference? It would be a copy. So, like the assignment operator works for objects in js (by reference) vs. for primitive values (by copy on assignment). Therefore, since it is the default behaviour with objects, we don't have to worry about it.
