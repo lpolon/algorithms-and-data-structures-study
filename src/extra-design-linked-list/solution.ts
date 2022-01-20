@@ -23,28 +23,28 @@ export class MyLinkedList {
   }
 
   getNode(index: number): MyListNode | null {
-    let cur = this.head;
-    let i = 0;
+    if (index < 0 || index >= this.length) return null;
 
-    while (cur !== null) {
-      if (i === index) {
-        return cur;
-      }
-      cur = cur.next;
-      i += 1;
+    let cur = this.head;
+    let curIndex = 0;
+
+    while (curIndex !== index) {
+      cur = cur?.next ?? null;
+      curIndex += 1;
     }
-    return null;
+    return cur;
   }
+
   get(index: number): number {
     const foundNode = this.getNode(index);
     return foundNode ? foundNode.val : -1;
   }
 
   addAtHead(val: number): void {
-    const cur = new MyListNode(val);
-    if (this.length === 0) this.tail = cur;
-    cur.next = this.head;
-    this.head = cur;
+    const node = new MyListNode(val);
+    if (!this.length) this.tail = node;
+    node.next = this.head;
+    this.head = node;
     this.length += 1;
   }
 
@@ -94,22 +94,34 @@ export class MyLinkedList {
   }
 
   // broken somewhere
+  // deleteAtIndex(index: number): void {
+  //   let cur = this.head;
+  //   let i = 0;
+  //   while (i < index - 1) {
+  //     i += 1;
+  //     cur = cur?.next ?? null;
+  //   }
+
+  //   if (i === 0) {
+  //     this.head = this.head?.next ?? null;
+  //   }
+
+  //   if (cur?.next) {
+  //     cur.next = cur.next.next;
+  //   }
+  // }
+
   deleteAtIndex(index: number): void {
-    let cur = this.head;
-    let i = 0;
-    let prev: MyListNode | null = null;
-
-    if (index === 0) this.head = this.head?.next ?? null;
-
-    while (cur !== null) {
-      prev = cur;
-      cur = cur.next;
-      if (i === index) {
-        prev.next = prev.next?.next ?? null;
-        this.length -= 1;
-        return;
+    if (index < 0 || index >= this.length) return;
+    if (index === 0) this.head = this?.head?.next ?? null;
+    else {
+      const pre = this.getNode(index - 1);
+      if (pre?.next) {
+        pre.next = pre.next.next;
+      } else {
+        this.tail = pre;
       }
-      i += 1;
     }
+    this.length--;
   }
 }

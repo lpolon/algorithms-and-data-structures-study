@@ -13,15 +13,17 @@ describe('My linked list', () => {
   describe('addAtHead method', () => {
     it('should properly add one element as head', () => {
       const linkedList = new MyLinkedList();
-      linkedList.addAtHead(10);
+      linkedList.addAtHead(2);
+      logArr(linkedList.head);
+      console.log(linkedList.head);
       expect(linkedList.length).toEqual(1);
       expect(linkedList.tail).toStrictEqual(linkedList.head);
       expect(linkedList.head).toMatchInlineSnapshot(`
-              MyListNode {
-                "next": null,
-                "val": 10,
-              }
-            `);
+        MyListNode {
+          "next": null,
+          "val": 2,
+        }
+      `);
     });
     it('should properly add a third element from head', () => {
       const linkedList = new MyLinkedList();
@@ -154,16 +156,36 @@ describe('My linked list', () => {
       expect(nodeVal).toEqual(-1);
     });
   });
+
   it.skip('leetcode example', () => {
     const ll = new MyLinkedList();
-    ll.addAtHead(1);
-    ll.addAtTail(3);
-    // console.log(ll);
-    ll.addAtIndex(1, 2);
-    ll.get(1);
-    ll.deleteAtIndex(0);
-    // console.log(ll);
-    const output = ll.get(0);
-    console.log('should return 2:', output);
+    ll.addAtHead(2);
+    logArr(ll.head);
+    ll.deleteAtIndex(1);
+    logArr(ll.head);
+    ll.addAtHead(2);
+    logArr(ll.head);
+    ll.addAtHead(7);
+    logArr(ll.head);
+    ll.addAtHead(3);
+    logArr(ll.head);
+    ll.addAtHead(2);
+    logArr(ll.head);
+    ll.addAtHead(5);
+    logArr(ll.head);
+    ll.addAtTail(5);
+    logArr(ll.head);
+    const output = ll.get(5);
+    console.log('should be 2:', output);
   });
 });
+
+function logArr(head: any) {
+  let cur = head;
+  const arr = [];
+  while (cur !== null) {
+    arr.push(cur?.val);
+    cur = cur.next;
+  }
+  console.log('oioi', arr);
+}
