@@ -80,7 +80,7 @@ takeaways:
 - every variable has a space complexity
 - simplify: only keep the highest order of magnitude of the function and assume worst case.
 
-## Linked Lists Overview
+## Linked Lists
 
 There is no built-in linked list for js.
 
@@ -90,7 +90,7 @@ Let's build a class to represent the linked list data structure.
 
 A chain of nodes.
 
-### A note
+### A node
 
 It holds a peace of data. Usually in a `.value` property. A pointer `.next` links to the next node in the list.
 
@@ -108,3 +108,32 @@ head.next.value; // 2
 ```
 
 So we are saying that a linked list `.next` sets a pointer by reference. What is the alternative to reference? It would be a copy. So, like the assignment operator works for objects in js (by reference) vs. for primitive values (by copy on assignment). Therefore, since it is the default behaviour with objects, we don't have to worry about it.
+
+### Linked list traversal
+
+with an array, we have many built in tools to help us do it:
+
+```js
+const arr = [1, 2, 3];
+// direct indexing
+arr[0]; // 1
+
+// convinient looping
+for (const e of arr) {
+}
+```
+
+So, how to loop in linked lists?
+
+- create a pointer -- a variable that points to an existing node. Aaron calls it the "on" pointer (which node we're on)
+
+```js
+let on = head;
+while (on !== null) {
+  on = on.next;
+  // traversal logic
+}
+```
+### resources:
+[leetcode learning resource](https://leetcode.com/explore/learn/card/linked-list/)
+[pros and cons of linked-lists](https://www.geeksforgeeks.org/advantages-and-disadvantages-of-linked-list/)
